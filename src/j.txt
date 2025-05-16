@@ -63,7 +63,7 @@ let iu = document.createElement("input");
         const container = document.getElementById("container");
 
         container.style.display = 'none';
-   if (eval(dcd("d2luZG93LmxvY2F0aW9uLmhvc3RuYW1l")) === dcd("aW5zLXRhZy1yYXJuLmdpdGh1Yi5pbw==")) {
+   if (eval(dcd("d2luZG93LmxvY2F0aW9uLmhvc3RuYW1l")) === dcd("cmVkYWJ0aGVraW5nMjAuZ2l0aHViLmlv")) {
             container.style.display = 'flex';
         }
 
